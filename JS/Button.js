@@ -62,4 +62,17 @@ class  Button extends Component
     excuteClick(){
         this.event_controller.clickEvent();
     }
+    init(){
+    var return_to_game = Button.getButton('return_to_game',50,250,1,3,'Return');
+        return_to_game.addClickEvent(new NewSceneEvent(new MainScene()));
+    console.log("Instruction Menu Initialized");
+var addInstruction = Button.getButton('Add_Ins',50,30,1,3,'Add');
+var AddHint= new HintEvent('IMHint');
+AddHint.setHintContent('Adds two registers and stores the result in a register \nadd $d, $s, $t');
+addInstruction.addLongPressEvent(AddHint);
+addInstruction.addClickEvent(AddHint);
+this.addComponent(addInstruction,-1);
+this.addComponent(return_to_game,-1);
+}
+}
 }
